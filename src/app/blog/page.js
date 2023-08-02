@@ -1,4 +1,4 @@
-import getDomain from "../lib/getDomain";
+import getDomain from "@/app/lib/getDomain";
 
 
 async function getData() {
