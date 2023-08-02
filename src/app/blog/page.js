@@ -1,12 +1,17 @@
-async function getData() {
-    // const endpoint = "http://localhost:3000/api/posts";
-    // const res = await fetch(endpoint);
+import getDomain from "../lib/getDomain";
 
-    // if (!res.ok) {
-    //     throw new Error("Failed to Fetch Data from Endpoint");
-    // }
-    // return res.json();
-    return {item: []}
+
+async function getData() {
+
+    const domain = getDomain()
+    const endpoint = `${domain}/api/posts`;
+    const res = await fetch(endpoint);
+
+    if (!res.ok) {
+        throw new Error("Failed to Fetch Data from Endpoint");
+    }
+    return res.json();
+    // return {item: []}
 }
 
 
