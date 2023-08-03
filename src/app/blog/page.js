@@ -3,7 +3,10 @@ import getDomain from "@/app/lib/getDomain";
 
 async function getData() {
 
-    const domain = getDomain()
+    // const domain = getDomain()
+    const domain = process.env.NODE_ENV === 'production'
+        ? 'https://localhost:3000' // Replace with your actual production domain
+        : getDomain();
     const endpoint = `${domain}/api/posts`;
 
     // const res = await fetch(endpoint,{next: {revalidate: 10}});
