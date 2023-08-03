@@ -1,16 +1,13 @@
 import getDomain from "@/app/lib/getDomain";
-
+import BlogCard from "./card";
 
 async function getData() {
 
-    // const domain = getDomain()
-    const domain = process.env.NODE_ENV === 'production'
-        ? 'https://localhost:3000' // Replace with your actual production domain
-        : getDomain();
+    const domain = getDomain()    
     const endpoint = `${domain}/api/posts`;
 
-    // const res = await fetch(endpoint,{next: {revalidate: 10}});
-    const res = await fetch(endpoint,{next: {cache : 'no-store'}});
+    const res = await fetch(endpoint,{next: {revalidate: 10}});
+    // const res = await fetch(endpoint,{next: {cache : 'no-store'}});
     
 
 
@@ -30,7 +27,7 @@ async function getData() {
 export default async function BlogPageDetails() {
     
     const data = await getData()
-    console.log(data);
+    // console.log(data);
     const items = data && data.item ? [...data.item] : []
 
     return <main>
@@ -39,13 +36,15 @@ export default async function BlogPageDetails() {
                 Hello World From Dynamic Page
             </h1>
             <h3>
-                <h3>Object</h3>
-                {data && JSON.stringify(data)}
-                <h3>Lists</h3>
+                {/* <h3>Object</h3> */}
+                {/* {data && JSON.stringify(data)} */}
+                <h3>POSTS</h3>
                 {items && items.map((item, idx) => {
-                    return <li key={`post-${idx}`}>
+                    {/* return <li key={`post-${idx}`}>
                         {item.title}
                     </li>
+                     */}
+                    return <BlogCard title={item.title} key={`post-${idx}`} /> 
                 })}
             </h3>
         </div>
