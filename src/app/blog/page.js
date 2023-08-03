@@ -5,7 +5,11 @@ async function getData() {
 
     const domain = getDomain()
     const endpoint = `${domain}/api/posts`;
-    const res = await fetch(endpoint);
+
+    const res = await fetch(endpoint,{next: {revalidate: 10}});
+    // const res = await fetch(endpoint,{next: {cache : 'no-store'}});
+    
+
 
     if (!res.ok) {
         throw new Error("Failed to Fetch Data from Endpoint");
