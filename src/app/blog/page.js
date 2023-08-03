@@ -1,5 +1,8 @@
 import getDomain from "@/app/lib/getDomain";
 import BlogCard from "./card";
+import { helloWorld } from "../lib/db";
+
+
 
 async function getData() {
 
@@ -26,6 +29,9 @@ async function getData() {
 
 export default async function BlogPageDetails() {
     
+    const dbHello = await helloWorld()
+    console.log("DB HELLO : ",dbHello);
+
     const data = await getData()
     // console.log(data);
     const items = data && data.item ? [...data.item] : []
@@ -35,6 +41,7 @@ export default async function BlogPageDetails() {
             <h1>
                 Hello World From Dynamic Page
             </h1>
+            <p>DB Response : {JSON.stringify(dbHello)}</p>
             <h3>
                 {/* <h3>Object</h3> */}
                 {/* {data && JSON.stringify(data)} */}

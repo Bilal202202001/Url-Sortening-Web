@@ -25,6 +25,7 @@ export default function LinksCreateForm() {
         const result = await response.json()
         updateResults(result)
         // console.log(result);
+
     }
 
     return <>
