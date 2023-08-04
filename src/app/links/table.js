@@ -6,6 +6,25 @@ export default async function LinkHTMLTable() {
 
     return <div>
         <h1>FETCHED DATA FROM NEOM DB</h1>
-        {LinksResponse && JSON.stringify(LinksResponse)}
+        <table>
+            <thead>
+                <tr>
+                <td>ID</td>
+                <td style={{paddingLeft:'100px'}}>URL</td>
+                </tr>
+                
+            </thead>
+            <tbody>
+        {LinksResponse && LinksResponse.map((link,idx)=>{
+            return <tr key={`link-item-${link.id}-${idx}`}>
+
+                    <td>{link.id}</td>
+                    <td style={{paddingLeft:'60px'}}>{link.url}</td>
+
+                    </tr>
+        })}
+
+            </tbody>
+        </table>
     </div>
 }
