@@ -42,10 +42,10 @@ export default async function BlogPageDetails() {
                 Hello World From Dynamic Page
             </h1>
             <p>DB Response : {JSON.stringify(dbHello)}</p>
-            <h3>
+            <div>
                 {/* <h3>Object</h3> */}
                 {/* {data && JSON.stringify(data)} */}
-                <h3>POSTS</h3>
+                <h4>POSTS</h4>
                 {items && items.map((item, idx) => {
                     {/* return <li key={`post-${idx}`}>
                         {item.title}
@@ -53,8 +53,11 @@ export default async function BlogPageDetails() {
                      */}
                     return <BlogCard title={item.title} key={`post-${idx}`} /> 
                 })}
-            </h3>
+            </div>
         </div>
     </main>;
 
 }
+
+export const runtime = 'edge'
+export const preferredRegion = 'iad1'
