@@ -40,6 +40,9 @@ export async function getLink(limit,offset){
     const lookuoLimit = limit ? limit : 10
     const loopupOffset = offset ? offset : 0
 
-    return await db.select().from(LinksTable).limit(lookuoLimit).offset(loopupOffset)
+    return await db.select({
+        id: LinksTable.id,
+        url: LinksTable.url
+    }).from(LinksTable).limit(lookuoLimit).offset(loopupOffset)
  
  }

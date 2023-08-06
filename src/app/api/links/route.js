@@ -1,6 +1,13 @@
 import isValidURL from "@/app/lib/isValidURL";
 import { NextResponse } from "next/server";
 import { addLink } from "@/app/lib/db";
+import { getLink } from "@/app/lib/db";
+
+export async function GET(request){
+    const link = await getLink();
+    return NextResponse.json(link,{status:200})
+}
+
 
 export async function POST(request){
 
