@@ -1,7 +1,7 @@
 'use client'
 import { useState } from "react"
 
-export default function LinksCreateForm() {
+export default function LinksCreateForm({didSubmit}) {
 
     const [result, updateResults] = useState(null)
 
@@ -24,6 +24,9 @@ export default function LinksCreateForm() {
         const response = await fetch(endpoint, options)
         const result = await response.json()
         updateResults(result)
+        if(didSubmit){
+            didSubmit(result)
+        }
         // console.log(result);
 
     }
