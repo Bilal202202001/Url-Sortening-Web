@@ -1,6 +1,7 @@
 import { neon, neonConfig } from "@neondatabase/serverless";
 import {drizzle} from 'drizzle-orm/neon-http'
 import { LinksTable } from "./schema";
+import { desc } from "drizzle-orm";
  
 neonConfig.fetchConnectionCache = true;
 const sql = neon(process.env.DATABASE_URL)
@@ -40,9 +41,9 @@ export async function getLink(limit,offset){
     const lookuoLimit = limit ? limit : 10
     const loopupOffset = offset ? offset : 0
 
-    return await db.select({
-        id: LinksTable.id,
-        url: LinksTable.url
-    }).from(LinksTable).limit(lookuoLimit).offset(loopupOffset)
- 
+    return await db.select().from(LinksTable).limit(lookuoLimit).offset(loopupOffset).orderBy(desc(LinksTable.createdAt))
+    // {
+    //     id: LinksTable.id,
+    //     url: LinksTable.url
+    // }
  }
