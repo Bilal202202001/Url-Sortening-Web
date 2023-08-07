@@ -1,7 +1,8 @@
 import { neon, neonConfig } from "@neondatabase/serverless";
 import {drizzle} from 'drizzle-orm/neon-http'
 import { LinksTable } from "./schema";
-import { desc } from "drizzle-orm";
+import { desc, eq } from "drizzle-orm";
+import randomShortStrings from "./randomShortStrings";
  
 neonConfig.fetchConnectionCache = true;
 const sql = neon(process.env.DATABASE_URL)
@@ -24,6 +25,7 @@ async function configureDB(){
     const dbResponse = await sql `CREATE TABLE IF NOT EXISTS "links"( 
         "id" serial PRIMARY KEY NOT NULL,
         "url" text NOT NULL,
+        "short" varchar,
         "created_at" timestamp DEFAULT now()
       )`
    console.log("DB response : " , dbResponse);
@@ -32,7 +34,8 @@ async function configureDB(){
 configureDB().catch(err=>console.log("Error while config : ", err))
 
 export async function addLink(url){
-   const newLink = {url : url}
+    const shortUrl = randomShortStrings()
+   const newLink = {url : url,short: shortUrl}
    return await db.insert(LinksTable).values(newLink).returning()
 
 }
@@ -46,4 +49,8 @@ export async function getLink(limit,offset){
     //     id: LinksTable.id,
     //     url: LinksTable.url
     // }
+ }
+
+ export async function getShortUrlRecord(shortUrl){
+    return await db.select().from(LinksTable).where(eq(LinksTable.short, shortUrl))
  }
