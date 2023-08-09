@@ -4,3 +4,5 @@ CREATE TABLE IF NOT EXISTS "links" (
 	"short" varchar,
 	"createdAt" timestamp DEFAULT now()
 );
+--> statement-breakpoint
+CREATE UNIQUE INDEX IF NOT EXISTS "url_idx" ON "links" ("url");

@@ -1,7 +1,7 @@
 {
   "version": "5",
   "dialect": "pg",
-  "id": "0110e531-8ccc-489e-be4f-233d4762fa81",
+  "id": "c523a79e-3059-49b4-88c9-15e9aef5c578",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "links": {
@@ -34,7 +34,15 @@
           "default": "now()"
         }
       },
-      "indexes": {},
+      "indexes": {
+        "url_idx": {
+          "name": "url_idx",
+          "columns": [
+            "url"
+          ],
+          "isUnique": true
+        }
+      },
       "foreignKeys": {},
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
