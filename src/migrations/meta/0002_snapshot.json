@@ -1,8 +1,8 @@
 {
   "version": "5",
   "dialect": "pg",
-  "id": "db6108bb-0355-4d6a-980b-14c31404d766",
-  "prevId": "3d985f84-d2c1-45a9-960d-2f11cb8d96cf",
+  "id": "54cfab5f-3b68-4324-b6f3-b0caf0bf7b1e",
+  "prevId": "db6108bb-0355-4d6a-980b-14c31404d766",
   "tables": {
     "links": {
       "name": "links",
@@ -77,6 +77,12 @@
         },
         "password": {
           "name": "password",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "email": {
+          "name": "email",
           "type": "varchar",
           "primaryKey": false,
           "notNull": true

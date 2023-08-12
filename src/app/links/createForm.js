@@ -32,12 +32,32 @@ export default function LinksCreateForm({didSubmit}) {
     }
 
     return <>
-        <form onSubmit={handleForm}>
-            <input type="text" defaultValue="https://github.com/Bilal202202001/nextjs-project" name="url" placeholder="Your URL link shorten" />
-            <button type="submit">Shorten</button>
+        <form onSubmit={handleForm} className="w-screen h-3/4">
+            <div className="flex flex-1 flex-col justify-center lg:px-8">
+                <div className=" flex flex-col justify-center items-center sm:mx-auto sm:w-full sm:max-w-sm">
+                <img src='/images/search.png' alt='no Pic' className=" h-24 w-24 mt-10"/>
+                    <h2 className="mt-10 text-center text-2xl font-bold w-30 text-gray-800">
+                        SHORTEN YOUR URLS
+                    </h2>
+                </div>
+                <div className="flex flex-col justify-center items-center sm:mx-auto sm:w-full sm:max-w-sm mt-5">
+                    <label htmlFor="url" className="text-sm font-medium leading-6 text-gray-900">
+                        GIVE URL TO SHORTEN
+                    </label>
+                    <input type="text" defaultValue="" id="url" name="url" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-800 focus:ring-2 focus:ring-inset focus:ring-gray-400 sm:text-sm sm:leading-6 mt-3" />
+                </div>
+                <div className="mt-5">
+                    <button
+                        type="submit"
+                        className="flex m-auto justify-center rounded-md bg-gray-800 hover:bg-gray-700 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-grey-700 w-60 mb-10"
+                    >
+                        SHORTEN
+                    </button>
+                </div>
+            </div>
         </form>
         <div>
-            <h3>Results : {result && JSON.stringify(result)}</h3>
+            <h3 className="text-sm font-medium leading-6 text-gray-900">{result && JSON.stringify(result)}</h3>
         </div>
     </>
 
