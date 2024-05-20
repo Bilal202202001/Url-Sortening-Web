@@ -29,7 +29,7 @@ export default async function Home() {
             <h2 className="leading-7 text-gray-900 sm:truncate sm:text-2xl sm:tracking-tight h-12 mt-3 mb-3 text-center">
              SECURE BROWSING
             </h2>
-            <p className="p-2 text-gray-900 sm:text-1xl text-center border-0 border-b-2 border-slate-300 mb-3 h-1/2">Secure browsing is a crucial aspect of online activities that prioritizes user safety and privacy in the digital landscape. It involves employing various measures to protect users from potential threats, such as malicious software, phishing attacks, data breaches, and unauthorized access to sensitive information.Secure websites use HTTPS (Hypertext Transfer Protocol Secure) to encrypt the data transmitted between a user's device and the website's server.</p>
+            <p className="p-2 text-gray-900 sm:text-1xl text-center border-0 border-b-2 border-slate-300 mb-3 h-1/2">Secure browsing is a crucial aspect of online activities that prioritizes user safety and privacy in the digital landscape. It involves employing various measures to protect users from potential threats, such as malicious software, phishing attacks, data breaches, and unauthorized access to sensitive information.Secure websites use HTTPS (Hypertext Transfer Protocol Secure) to encrypt the data transmitted between a users device and the websites server.</p>
           </div>
           <div className='flex flex-col justify-evenly items-center w-3/4 h-auto mt-4'>
             <img src='/images/website.png' alt='no Pic' className=" h-12 w-12 mt-3 animate-pulse "/>
